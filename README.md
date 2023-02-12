@@ -28,8 +28,8 @@ Todo: The CLI functionality - akkuratt nå it can only
 
 Future forbedringspotentials
 
-Norwegian -> Norwenglish (Fordi du er den med de styggeste klærne og det lengste fjeset -> Beacuse you are the one with the ugliest klær and the longest face)
-Norwegian -> German (Kan du hente avisa?  -> Kanst du avisa gehenten?)
-Norwegian -> Netherlandsk (Kan jeg kjøpe noen fyrstikker? -> Mijn hovercraft zit vol palingen)
+Norwegian -> Norwenglish (Fordi du er den med de styggeste klærne og det lengste fjeset -> Beacuse you are the one with the ugliest klær and the longest face)    
+Norwegian -> German (Kan du hente avisa?  -> Kanst du avisa gehenten?)    
+Norwegian -> Netherlandsk (Kan jeg kjøpe noen fyrstikker? -> Mijn hovercraft zit vol palingen)    
 
 
