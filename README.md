@@ -20,7 +20,7 @@ Eksempel output:
 | USA og Sovjetunionen kjempet mot hverandre.                                   | Usa og Sovjetunionan kjempi mot hverandri                                          |
 | Når man flytter på hybel, må man ta et visst ansvar.                          | Når man flyttar på hybelur, må man ta eit visstur ansvarur.                        |
 | Hun hadde gjort leksene sine, og tankene hennes fløy langt avgårde.           | Ho haddi gjorti leksa sini, og tanka hennast floyur langtur avgårdi.               |
-| I boken min står det at kapittel fem er lekse til i morgen.                   | I boken min står det at kapittel fem er lekse til i morgen.                        |
+| I boken min står det at kapittel fem er lekse til i morgen.                   | I bokan min stårur det at kapittelur fem er leksi til i morgan.                    |
 
 
 Todo: The CLI functionality - akkuratt nå it can only 
