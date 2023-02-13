@@ -2,7 +2,7 @@
 
 open System
 
-let replacements = 
+let private replacements = 
     Map [
         "ditt", "dykkar"
         "mens", "mens"
@@ -23,17 +23,17 @@ let replacements =
         "kommer", "kjem"
     ]
     
-let (|EndsWith|_|) (pattern:string) (word:string) = 
+let private (|EndsWith|_|) (pattern:string) (word:string) = 
     if word.EndsWith(pattern) then Some word[..^pattern.Length]
     else None
     
-let (|StartsWith|_|) (pattern:string) (word:string) = 
+let private (|StartsWith|_|) (pattern:string) (word:string) = 
     if word.StartsWith(pattern) then Some word[pattern.Length..]
     else None
     
-let (|HasReplacement|_|) (word:string) = replacements |> Map.tryFind word
+let private (|HasReplacement|_|) (word:string) = replacements |> Map.tryFind word
     
-let replaceEnding word =
+let private replaceEnding word =
     match word with
     | HasReplacement replacement -> replacement
     | EndsWith "lighet" rest -> rest + "leik"
@@ -71,7 +71,7 @@ let replaceEnding word =
     | EndsWith "a" rest -> rest + "a"
     | _ -> word + "ur"
     
-let replaceStart word =
+let private replaceStart word =
     match word with
     | HasReplacement replacement -> replacement
     //| StartsWith "an" rest -> "an" + rest
@@ -85,12 +85,12 @@ let replaceStart word =
     | StartsWith "red" rest -> "rei" + rest
     | _ -> word
 
-let translateToNynorsk (word:string) =
+let private translateToNynorsk (word:string) =
     word
     |> replaceStart
     |> replaceEnding
 
-let translateWord (word:string) =
+let private translateWord (word:string) =
     let firstLetterCapitalized = Char.IsUpper word[0]
     let translatedWord =
         match word.ToLower() with
