@@ -4,33 +4,47 @@ open Sutil
 open Fable.Core.JsInterop
 
 open Sutil.CoreElements
-
-open TranslationStore
+open NynorskTranslator
 
 importAll "./index.css"
 
-let getTranslatedText m = m.output |> Option.defaultValue "Text not set"
+let input = Store.make "Man må alltid gjøre det man er overbevist om, selv om det kan være vanskelig"
+let output = Store.map translate input    
+
+let header = 
+    Html.divc "py-5 bg-slate-600 shadow-lg shadow-gray-700/50" [
+        Html.divc "container mx-auto px-3 text-white drop-shadow-lg shadow-green-900" [
+            Html.h1 [ text "Totally Akkurate Nynorsk Translator"; class' "text-2xl font-bold leading-7 sm:truncate sm:text-3xl sm:tracking-tight" ]
+            Html.h3 [ text "Translates a good Norwegian setning into somewhat tvilsom Nynorsk"; class' "text-lg" ]
+            ]
+        ]
+
+let inputs = 
+    Html.divc "container mx-auto px-3 flex flex-col lg:flex-row gap-3" [
+        Html.divc "flex-1" [ 
+            text "Norsk"
+            Html.textarea [
+            Attr.rows 5
+            Bind.attr("value", input)
+            class' "w-full border rounded-md align-text-top px-1"
+            ]
+            ]
+        
+        Html.divc "flex-1" [ 
+            text "Nynorsk"
+            Html.textarea [
+                Attr.rows 5
+                Attr.readOnly true
+                Bind.attr("value", output)
+                class' "w-full border rounded-md align-text-top px-1"
+            ]
+        ]
+    ]
 
 let app () =
-    let model, dispatch = () |> Store.makeElmish TranslationStore.init TranslationStore.update ignore
-
-    Html.div [ 
-        class' "container mx-auto"
-        Html.h1 [
-            class' "text-3xl font-bold"
-            text "Hello world!" ]
-        Html.div [
-            Html.p [ Bind.fragment (model |> Store.map getTranslatedText) <| fun n -> Html.text $"Text = {n}" ] ]
-        Html.div [ 
-            Html.button [
-                class' "btn"
-                onClick (fun _ -> dispatch (TranslationStore.SetText ("Hello World"))) []
-                Html.text "(+)" ] ]
-        Html.div [ 
-            Html.button [
-                class' "btn"
-                onClick (fun _ -> dispatch TranslationStore.ClearText) []
-                Html.text "(-)" ] ]                
+    Html.divc "flex flex-col gap-5" [
+        header
+        inputs
     ]
 
 app () |> Program.mountElement "sutil-app"

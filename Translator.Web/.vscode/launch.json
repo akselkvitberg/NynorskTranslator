@@ -5,7 +5,7 @@
             "name": "Debug Client",
             "type": "msedge",
             "request": "launch",
-            "url": "http://localhost:3000",
+            "url": "http://localhost:5173",
             "preLaunchTask": "Watch Client"
         }
    ]

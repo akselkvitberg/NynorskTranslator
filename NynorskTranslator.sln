@@ -7,6 +7,12 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "NynorskTranslator", "Nynors
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Translator.Api", "Translator.Api\Translator.Api.fsproj", "{5B17EEBE-A8C8-474A-8B23-0AA28CAD6BF3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Translator.Web", "Translator.Web", "{62E9661C-7A51-476D-B481-758839313F74}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "App", "Translator.Web\src\App.fsproj", "{CCE832F2-BA68-4D26-AE7D-2B20368DA492}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Translator.Cli", "Translator.Cli\Translator.Cli.fsproj", "{0769A40A-3AC5-4E3E-9A30-B9B91D0BFCB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +30,16 @@ Global
 		{5B17EEBE-A8C8-474A-8B23-0AA28CAD6BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B17EEBE-A8C8-474A-8B23-0AA28CAD6BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B17EEBE-A8C8-474A-8B23-0AA28CAD6BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCE832F2-BA68-4D26-AE7D-2B20368DA492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCE832F2-BA68-4D26-AE7D-2B20368DA492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCE832F2-BA68-4D26-AE7D-2B20368DA492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCE832F2-BA68-4D26-AE7D-2B20368DA492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0769A40A-3AC5-4E3E-9A30-B9B91D0BFCB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0769A40A-3AC5-4E3E-9A30-B9B91D0BFCB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0769A40A-3AC5-4E3E-9A30-B9B91D0BFCB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0769A40A-3AC5-4E3E-9A30-B9B91D0BFCB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CCE832F2-BA68-4D26-AE7D-2B20368DA492} = {62E9661C-7A51-476D-B481-758839313F74}
 	EndGlobalSection
 EndGlobal

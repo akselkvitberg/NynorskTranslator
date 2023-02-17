@@ -2,8 +2,8 @@
   "private": true,
   "scripts": {
     "postinstall": "dotnet tool restore",
-    "start": "dotnet fable watch src -o src/fable --sourceMaps --runFast vite",
-    "build": "dotnet fable src -o src/fable --run vite build"
+    "start": "dotnet fable watch src -o js --sourceMaps --runFast vite",
+    "build": "dotnet fable src -o js --run vite build"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.2",

@@ -1,4 +1,4 @@
-﻿module NynorskTranslator.Translator
+﻿module NynorskTranslator
 
 open System
 
@@ -10,7 +10,6 @@ let private replacements =
         "en", "ein"
         "et", "eit"
         "jeg", "eg"
-        "du", "deg"
         "vi", "me"
         "hun", "ho"
         "de", "dei"
@@ -24,7 +23,7 @@ let private replacements =
     ]
     
 let private (|EndsWith|_|) (pattern:string) (word:string) = 
-    if word.EndsWith(pattern) then Some word[..^pattern.Length]
+    if word.EndsWith(pattern) then Some word[..(word.Length - pattern.Length)]//word[..^pattern.Length]
     else None
     
 let private (|StartsWith|_|) (pattern:string) (word:string) = 
@@ -90,20 +89,25 @@ let private translateToNynorsk (word:string) =
     |> replaceStart
     |> replaceEnding
 
-let private translateWord (word:string) =
+let rec private translateWord (word:string) =
     let firstLetterCapitalized = Char.IsUpper word[0]
     let translatedWord =
         match word.ToLower() with
         | HasReplacement replacement -> replacement
         | word when word.Length <= 3 -> word
-        | word when Char.IsPunctuation word[^0] -> translateToNynorsk word[..^1] + word[^0..^0]
+        //| word when Char.IsPunctuation word[^0] -> translateToNynorsk word[..^1] + word[^0..^0]
+        | word when Char.IsPunctuation word[word.Length-1] -> $"{translateWord word[..word.Length-2]}{word[word.Length-1]}"
         | _ -> translateToNynorsk word
     if firstLetterCapitalized
     then string (translatedWord[0] |> Char.ToUpper) + translatedWord[1..]
     else translatedWord
 
+let translateLine (line:string) = 
+    line.Split([|' '|], StringSplitOptions.RemoveEmptyEntries)
+        |> Seq.map (fun str -> str.Trim())
+        |> Seq.map translateWord
+        |> String.concat " "
 let translate (sentence:string) = 
-    sentence
-        .Split(' ', StringSplitOptions.TrimEntries)
-    |> Seq.map translateWord
-    |> String.concat " "
+    sentence.Split([| "\r\n"; "\n" |], StringSplitOptions.RemoveEmptyEntries)
+    |> Seq.map translateLine
+    |> String.concat "\n"
