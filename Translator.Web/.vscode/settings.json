@@ -1,0 +1,10 @@
+{
+    "tailwindCSS.experimental.classRegex": [
+        "Attr\\.className\\s+\"([^\"]*)\"",
+        "Html\\.divc\\s+\"([^\"]*)\"",
+        "class'\\s+\"([^\"]*)\""
+    ],
+    "tailwindCSS.includeLanguages": {
+        "fsharp": "html"
+    }
+}
