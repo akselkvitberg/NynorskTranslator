@@ -38,12 +38,12 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: install # will run `yarn install` command
-          working-directory: 'Translator.Web'
+          dir: 'Translator.Web'
       - name: Build production bundle
         uses: borales/actions-yarn@v4
         with:
           cmd: build # will run `yarn build:prod` command
-          working-directory: 'Translator.Web'
+          dir: 'Translator.Web'
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
