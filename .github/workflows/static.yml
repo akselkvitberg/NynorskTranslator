@@ -42,7 +42,7 @@ jobs:
       - name: Build production bundle
         uses: borales/actions-yarn@v4
         with:
-          cmd: build --base=/NynorskTranslator/# will run `yarn build:prod` command
+          cmd: build --base=/NynorskTranslator/
           dir: 'Translator.Web'
       - name: Setup Pages
         uses: actions/configure-pages@v3
