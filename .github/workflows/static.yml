@@ -37,7 +37,7 @@ jobs:
       - name: Run install
         uses: borales/actions-yarn@v4
         with:
-          cmd: install # will run `yarn install` command
+          cmd: install --base=/NynorskTranslator/ # will run `yarn install` command
           dir: 'Translator.Web'
       - name: Build production bundle
         uses: borales/actions-yarn@v4
