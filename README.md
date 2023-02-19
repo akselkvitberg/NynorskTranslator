@@ -23,7 +23,7 @@ Eksempel output:
 | I boken min står det at kapittel fem er lekse til i morgen.                   | I bokan min stårur det at kapittelur fem er leksi til i morgan.                    |
 
 
-Todo: The CLI functionality - akkuratt nå it can only 
+Todo: The CLI functionality - akkuratt nå it can only translate i konsollet
 
 
 Future forbedringspotentials
